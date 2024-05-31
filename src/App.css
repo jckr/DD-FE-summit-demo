@@ -1,0 +1,52 @@
+.column {
+  display: flex;
+  flex-direction: column;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.image-stack {
+  display: grid;
+  height: 512px;
+  width: 512px;
+  isolation: isolate;
+  transition: filter 0.25s;
+}
+
+.scenario {
+  margin: 10px 0;
+}
+body {
+  padding: 20px;
+  background: linear-gradient(
+    45deg,
+    #ffe5e5,
+    #ffd6e7,
+    #e5d6ff,
+    #d6e2ff,
+    #d6faff
+  );
+}
+
+button {
+  margin-right: 10px;
+}
+
+.canvas {
+  grid-row: 1 / 2;
+  grid-column: 1 / 2;
+  width: 100%; /* Adjust as necessary */
+  height: 100%; /* Adjust as necessary */
+  position: relative; /* Ensure z-index works */
+}
+
+.action {
+  cursor: pointer;
+  background-color: #ffffe5;
+  border-radius: 5px;
+  padding: 5px;
+  margin-right: 5px;
+}
