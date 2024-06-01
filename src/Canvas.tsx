@@ -9,13 +9,17 @@ export const Canvas = (props: {
   style: React.CSSProperties;
 }) => {
   const { imageUrl, style = {} } = props;
+  console.log(imageUrl);
+
   const ref = useRef<HTMLCanvasElement>(null);
   useEffect(() => {
     const ctx = ref.current?.getContext('2d');
     if (!ctx) {
       return;
     }
+    ctx.clearRect(0, 0, WIDTH, HEIGHT);
     const image = new Image();
+    console.log(image);
     image.onload = () => {
       ctx.drawImage(image, 0, 0, WIDTH, HEIGHT);
     };
