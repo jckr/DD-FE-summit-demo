@@ -1,4 +1,5 @@
 import React from "react";
+import { Action } from "./Action";
 
 export const LayerFilter = (props: {
     style1: React.CSSProperties,
@@ -12,47 +13,29 @@ export const LayerFilter = (props: {
 
 }) => {
     const {style1, style2, style3, style4, setStyle1, setStyle2, setStyle3, setStyle4} = props;
+const layers: Array<[React.CSSProperties, (style: React.CSSProperties) => void]> = [
+  [style1, setStyle1],
+  [style2, setStyle2],
+  [style3, setStyle3],
+  [style4, setStyle4]
+];
 
 return (<div className="row">
-<button
-  onClick={() =>
-    setStyle1({
-      ...style1,
+  {layers.map(([style, setStyle], i) => 
+    <Action
+  action={() =>
+    setStyle({
+      ...style,
       visibility: style1.visibility ? undefined : 'hidden',
     })
   }
->
-  {`${style1.visibility ? 'show' : 'hide'} layer 1`}
-</button>
-<button
-  onClick={() =>
-    setStyle2({
-      ...style2,
-      visibility: style2.visibility ? undefined : 'hidden',
-    })
-  }
->
-  {`${style2.visibility ? 'show' : 'hide'} layer 2`}
-</button>
-<button
-  onClick={() =>
-    setStyle3({
-      ...style3,
-      visibility: style3.visibility ? undefined : 'hidden',
-    })
-  }
->
-  {`${style3.visibility ? 'show' : 'hide'} layer 3`}
-</button>
-<button
-  onClick={() =>
-    setStyle4({
-      ...style4,
-      visibility: style4.visibility ? undefined : 'hidden',
-    })
-  }
->
-  {`${style4.visibility ? 'show' : 'hide'} layer 4`}
-</button>
+
+  label={`${style1.visibility ? 'show' : 'hide'} layer 1`}
+  key={`a-${i}`}
+/>)}
+
+  
+  
+
 </div>);
 }

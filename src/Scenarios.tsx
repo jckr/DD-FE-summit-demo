@@ -192,16 +192,33 @@ export const Scenarios = (props: {
         {title: 'Region of a layer',
     sections: [
         {
-            description: 'mask',
+            description: 'Using a combination of masks and backdrops, we can apply effects to parts of an image. But this affects all layers - no choosing',
             tasks: [
                 {
-                    label: 'mask',
+                    label: 'outer bounds',
                     layer5: {
-                        maskImage: 'linear-gradient(to right, black 0, black 20%, transparent 20%, transparent 80%, black 80%)',
+                        maskImage: 'linear-gradient(to right, black 0, black 25%, transparent 25%, transparent 75%, black 75%)',
                         backdropFilter: 'grayscale(1)'
 
                     }
+                },
+                {
+                    label: 'circle',
+                    layer5: {
+                        maskImage: 'radial-gradient(circle at 75% 60%, black 10%, transparent 91%)',
+                        backdropFilter: 'grayscale(1)'
+                    }
+                },
+                {
+                    label: 'polka dots',
+                    layer5: {
+                        maskImage: 'radial-gradient(circle, black 30%, transparent 70%)',
+                        maskRepeat: 'repeat',
+                        maskSize: '50px 50px',
+                        backdropFilter: 'hue-rotate(180deg)'
+                    }
                 }
+
             ]
         }
     ]}
@@ -244,7 +261,7 @@ const Section = (props: {
                         setStyle2(t.layer2 ?? {});
                         setStyle3(t.layer3 ?? {});
                         setStyle4(t.layer4 ?? {});
-                        setStyle4(t.layer5 ?? {});
+                        setStyle5(t.layer5 ?? {});
                         setStyleIntermediary(t.intermediary ?? {});
                     }} />)}
                 </div>

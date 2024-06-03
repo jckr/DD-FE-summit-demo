@@ -3,6 +3,9 @@
   flex-direction: column;
 }
 
+.main {
+  max-width: 512px;
+}
 .row {
   display: flex;
   flex-direction: row;
@@ -21,6 +24,7 @@ h4 {
 
 .code-block {
   margin-left: 20px;
+  max-width: 500px;
  }
 .scenario {
   margin: 10px 0;
@@ -61,7 +65,7 @@ button {
   background-color: #ffffe5;
   border-radius: 5px;
   padding: 5px;
-  margin-right: 5px;
+  margin: 5px;
 }
 
 .scenario.active div {
@@ -69,7 +73,8 @@ max-height: fit-content;
 }
 .scenario div {
   max-height: 0;
-  overflow: hidden;
+  overflow-y: hidden;
+  max-width: 800px;
 }
 
 .scenario.active h3 {
@@ -80,4 +85,9 @@ max-height: fit-content;
 .scenario h3 {
   cursor: pointer;
   text-decoration: underline;
+}
+
+textarea {
+  min-height: 5em;
+  min-width: 24em;
 }

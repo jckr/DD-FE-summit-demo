@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import './App.css';
-import { Canvas } from './Canvas';
 // import { Action } from './Action';
 import { LayerFilter } from './LayerFilter';
 import { ImageSelector} from './ImageSelector';
@@ -11,6 +10,7 @@ import layer1il from './assets/layer-01.webp';
 import layer2il from './assets/layer-02.webp';
 import layer3il from './assets/layer-03.webp';
 import layer4il from './assets/layer-04.webp';
+import { ImageStack } from './ImageStack';
 
 function App() {
   const [style, setStyle] = useState<React.CSSProperties>({});
@@ -32,30 +32,17 @@ function App() {
   }
 
   return (
-    <div className="column">
-     
-      <div className="row">
-       <div className="column">
-       <ImageSelector setImages={setImages} />
-        <div className="image-stack" style={style}>
-          <Canvas imageUrl={images[0]} style={style1} />
-          <Canvas imageUrl={images[1]} style={style2} />
-          <div className="image-stack" style={styleIntermediary}>
-            <Canvas imageUrl={images[2]} style={style3} />
-            <Canvas imageUrl={images[3]} style={style4} />
-            <div style={style5} />
-          </div>
-        </div>
-        </div>
-        <div className="column">
-         <StyleBlock {...styles} />
-        </div>
-      </div>
+    <div className="row">
+    <div className="column main">
+      <ImageSelector setImages={setImages} />
+      <ImageStack {...styles} images={images} />   
       <LayerFilter {...styles} {...setStyles} />
       <Reset  {...setStyles} />
       <Scenarios {...setStyles} />
-      </div>
-    
+    </div>
+    <StyleBlock {...styles} {...setStyles}/>
+
+  </div>
     
   );
 }
