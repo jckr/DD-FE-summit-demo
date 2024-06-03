@@ -18,6 +18,10 @@
   transition: filter 0.25s;
 }
 
+h3 {
+  margin: 0.25em 0;
+}
+
 h4 {
   margin: 0.5em 0;
 }
@@ -26,9 +30,6 @@ h4 {
   margin-left: 20px;
   max-width: 500px;
  }
-.scenario {
-  margin: 10px 0;
-}
 body {
   margin: 0;
     display: flex;
@@ -70,6 +71,8 @@ button {
 
 .scenario.active div {
 max-height: fit-content;
+margin: 10px 0;
+
 }
 .scenario div {
   max-height: 0;
